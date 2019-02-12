@@ -1,0 +1,152 @@
+[
+  {
+    "movie": {
+      "title": "Avengers: Endgame",
+      "alternativeTitles": [],
+      "secondaryYearSourceId": 0,
+      "sortTitle": "avengers endgame",
+      "sizeOnDisk": 0,
+      "status": "announced",
+      "overview": "A culmination of 22 interconnected films and the finale of this epic journey across the length and breadth of the Marvel Cinematic Universe.  Our beloved heroes will truly understand how fragile this reality is and the sacrifices that must be made to uphold it.",
+      "inCinemas": "2019-04-24T03:00:00Z",
+      "images": [
+        {
+          "coverType": "poster",
+          "url": "/MediaCover/4/poster.jpg"
+        },
+        {
+          "coverType": "fanart",
+          "url": "/MediaCover/4/fanart.jpg"
+        }
+      ],
+      "website": "https://www.marvel.com/movies/avengers-endgame",
+      "downloaded": false,
+      "year": 2019,
+      "hasFile": false,
+      "youTubeTrailerId": "hA6hldpSTF8",
+      "studio": "Marvel Studios",
+      "path": "/movies/Avengers Endgame (2019)",
+      "profileId": 7,
+      "pathState": "static",
+      "monitored": false,
+      "minimumAvailability": "released",
+      "isAvailable": false,
+      "folderName": "/movies/Avengers Endgame (2019)",
+      "runtime": 180,
+      "lastInfoSync": "2019-02-01T16:32:29.497903Z",
+      "cleanTitle": "avengersendgame",
+      "imdbId": "tt4154796",
+      "tmdbId": 299534,
+      "titleSlug": "avengers-endgame-299534",
+      "genres": [],
+      "tags": [],
+      "added": "2019-01-22T19:54:24.640242Z",
+      "ratings": {
+        "votes": 0,
+        "value": 0.0
+      },
+      "qualityProfileId": 7,
+      "id": 4
+    },
+    "quality": {
+      "quality": {
+        "id": 7,
+        "name": "Bluray-1080p",
+        "source": "bluray",
+        "resolution": "r1080P",
+        "modifier": "none"
+      },
+      "customFormats": [],
+      "revision": {
+        "version": 1,
+        "real": 0
+      }
+    },
+    "size": 4581567938.0,
+    "title": "Avengers: Endgame (2019) + Extras (1080p BluRay x265 HEVC 10bit AAC 5.1 afm72)",
+    "sizeleft": 4551421378.0,
+    "timeleft": "00:00:00",
+    "estimatedCompletionTime": "2019-02-01T17:42:08.900092Z",
+    "status": "Paused",
+    "trackedDownloadStatus": "Ok",
+    "statusMessages": [],
+    "downloadId": "CBF02169FC8EB531C1B28E69FF31A1B44D69954A",
+    "protocol": "torrent",
+    "id": 767898870
+  },
+  {
+    "movie": {
+      "title": "Captain Marvel",
+      "alternativeTitles": [],
+      "secondaryYearSourceId": 0,
+      "sortTitle": "captain marvel",
+      "sizeOnDisk": 0,
+      "status": "announced",
+      "overview": "The story follows Carol Danvers as she becomes one of the universe’s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe.",
+      "inCinemas": "2019-03-06T03:00:00Z",
+      "images": [
+        {
+          "coverType": "poster",
+          "url": "/MediaCover/5/poster.jpg"
+        },
+        {
+          "coverType": "fanart",
+          "url": "/MediaCover/5/fanart.jpg"
+        }
+      ],
+      "website": "https://www.marvel.com/movies/captain-marvel",
+      "downloaded": false,
+      "year": 2019,
+      "hasFile": false,
+      "youTubeTrailerId": "Z1BCujX3pw8",
+      "studio": "Marvel Studios",
+      "path": "/movies/Captain Marvel (2019)",
+      "profileId": 7,
+      "pathState": "static",
+      "monitored": true,
+      "minimumAvailability": "released",
+      "isAvailable": false,
+      "folderName": "/movies/Captain Marvel (2019)",
+      "runtime": 0,
+      "lastInfoSync": "2019-02-01T16:32:32.365656Z",
+      "cleanTitle": "captainmarvel",
+      "imdbId": "tt4154664",
+      "tmdbId": 299537,
+      "titleSlug": "captain-marvel-299537",
+      "genres": [],
+      "tags": [],
+      "added": "2019-01-22T19:54:35.659528Z",
+      "ratings": {
+        "votes": 0,
+        "value": 0.0
+      },
+      "qualityProfileId": 7,
+      "id": 5
+    },
+    "quality": {
+      "quality": {
+        "id": 7,
+        "name": "Bluray-1080p",
+        "source": "bluray",
+        "resolution": "r1080P",
+        "modifier": "none"
+      },
+      "customFormats": [],
+      "revision": {
+        "version": 1,
+        "real": 0
+      }
+    },
+    "size": 4581567938.0,
+    "title": "Captain Marvel (2019) Bluray 1080p",
+    "sizeleft": 4551428.0,
+    "timeleft": "00:00:00",
+    "estimatedCompletionTime": "2019-02-01T17:42:08.900092Z",
+    "status": "Paused",
+    "trackedDownloadStatus": "Ok",
+    "statusMessages": [],
+    "downloadId": "BCE02169FC8EC531C1B18E69FF31A1B44D69954A",
+    "protocol": "torrent",
+    "id": 165878573
+  }
+]

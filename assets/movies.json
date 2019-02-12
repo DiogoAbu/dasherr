@@ -1,0 +1,253 @@
+[
+  {
+    "title": "Bohemian Rhapsody",
+    "alternativeTitles": [
+      {
+        "sourceType": "tmdb",
+        "movieId": 2,
+        "title": "Untitled Freddie Mercury Biopic",
+        "sourceId": 424694,
+        "votes": 0,
+        "voteCount": 0,
+        "language": "english",
+        "id": 2
+      }
+    ],
+    "secondaryYearSourceId": 0,
+    "sortTitle": "bohemian rhapsody",
+    "sizeOnDisk": 2317718372,
+    "status": "inCinemas",
+    "overview": "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.",
+    "inCinemas": "2018-10-24T03:00:00Z",
+    "physicalRelease": "2019-02-12T00:00:00Z",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/2/poster.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/2/fanart.jpg"
+      }
+    ],
+    "website": "http://bohemianrhapsody.com",
+    "downloaded": true,
+    "year": 2018,
+    "hasFile": true,
+    "youTubeTrailerId": "mP0VHJYFOAU",
+    "studio": "GK Films",
+    "path": "/movies/Bohemian Rhapsody (2018)",
+    "profileId": 7,
+    "pathState": "static",
+    "monitored": true,
+    "minimumAvailability": "released",
+    "isAvailable": false,
+    "folderName": "/movies/Bohemian Rhapsody (2018)",
+    "runtime": 135,
+    "lastInfoSync": "2019-02-01T16:32:30.959785Z",
+    "cleanTitle": "bohemianrhapsody",
+    "imdbId": "tt1727824",
+    "tmdbId": 424694,
+    "titleSlug": "bohemian-rhapsody-424694",
+    "genres": [],
+    "tags": [],
+    "added": "2019-01-22T19:53:35.89667Z",
+    "ratings": {
+      "votes": 4323,
+      "value": 8.2
+    },
+    "movieFile": {
+      "movieId": 0,
+      "relativePath": "[Bitnova.info] Bohemian Rhapsody (2018) [BDRIP] [1080p] [NAPISY PL] [PROAC].mp4",
+      "size": 2317718372,
+      "dateAdded": "2019-01-27T15:44:12.113597Z",
+      "sceneName": "[Bitnova.info] Bohemian Rhapsody (2018) [BDRIP] [1080p] [NAPISY PL] [PROAC]",
+      "quality": {
+        "quality": {
+          "id": 7,
+          "name": "Bluray-1080p",
+          "source": "bluray",
+          "resolution": "r1080P",
+          "modifier": "none"
+        },
+        "customFormats": [],
+        "revision": {
+          "version": 1,
+          "real": 0
+        }
+      },
+      "edition": "",
+      "mediaInfo": {
+        "containerFormat": "MPEG-4",
+        "videoFormat": "AVC",
+        "videoCodecID": "avc1",
+        "videoProfile": "High@L4.1",
+        "videoCodecLibrary": "x264 - core 157",
+        "videoBitrate": 2150000,
+        "videoBitDepth": 8,
+        "videoMultiViewCount": 0,
+        "videoColourPrimaries": "",
+        "videoTransferCharacteristics": "",
+        "width": 1920,
+        "height": 800,
+        "audioFormat": "AAC",
+        "audioCodecID": "mp4a-40-2",
+        "audioCodecLibrary": "",
+        "audioAdditionalFeatures": "LC",
+        "audioBitrate": 128877,
+        "runTime": "02:15:19.4030000",
+        "audioStreamCount": 1,
+        "audioChannels": 2,
+        "audioChannelPositions": "2/0/0",
+        "audioChannelPositionsText": "Front: L R",
+        "audioProfile": "",
+        "videoFps": 23.976,
+        "audioLanguages": "",
+        "subtitles": "",
+        "scanType": "Progressive",
+        "schemaRevision": 5
+      },
+      "id": 2
+    },
+    "qualityProfileId": 7,
+    "id": 2
+  },
+  {
+    "title": "Avengers: Endgame",
+    "alternativeTitles": [
+      {
+        "sourceType": "tmdb",
+        "movieId": 4,
+        "title": "Avengers 4",
+        "sourceId": 299534,
+        "votes": 0,
+        "voteCount": 0,
+        "language": "english",
+        "id": 3
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 4,
+        "title": "Avengers: Annihilation",
+        "sourceId": 299534,
+        "votes": 0,
+        "voteCount": 0,
+        "language": "english",
+        "id": 5
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 4,
+        "title": "Avengers: Infinity Gauntlet",
+        "sourceId": 299534,
+        "votes": 0,
+        "voteCount": 0,
+        "language": "english",
+        "id": 4
+      }
+    ],
+    "secondaryYearSourceId": 0,
+    "sortTitle": "avengers endgame",
+    "sizeOnDisk": 0,
+    "status": "announced",
+    "overview": "A culmination of 22 interconnected films and the finale of this epic journey across the length and breadth of the Marvel Cinematic Universe.  Our beloved heroes will truly understand how fragile this reality is and the sacrifices that must be made to uphold it.",
+    "inCinemas": "2019-04-24T03:00:00Z",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/4/poster.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/4/fanart.jpg"
+      }
+    ],
+    "website": "https://www.marvel.com/movies/avengers-endgame",
+    "downloaded": false,
+    "year": 2019,
+    "hasFile": false,
+    "youTubeTrailerId": "hA6hldpSTF8",
+    "studio": "Marvel Studios",
+    "path": "/movies/Avengers Endgame (2019)",
+    "profileId": 7,
+    "pathState": "static",
+    "monitored": false,
+    "minimumAvailability": "released",
+    "isAvailable": false,
+    "folderName": "/movies/Avengers Endgame (2019)",
+    "runtime": 180,
+    "lastInfoSync": "2019-02-01T16:32:29.497903Z",
+    "cleanTitle": "avengersendgame",
+    "imdbId": "tt4154796",
+    "tmdbId": 299534,
+    "titleSlug": "avengers-endgame-299534",
+    "genres": [],
+    "tags": [],
+    "added": "2019-01-22T19:54:24.640242Z",
+    "ratings": {
+      "votes": 0,
+      "value": 0.0
+    },
+    "qualityProfileId": 7,
+    "id": 4
+  },
+  {
+    "title": "Captain Marvel",
+    "alternativeTitles": [
+      {
+        "sourceType": "tmdb",
+        "movieId": 5,
+        "title": "Untitled Marvel Project",
+        "sourceId": 299537,
+        "votes": 0,
+        "voteCount": 0,
+        "language": "english",
+        "id": 6
+      }
+    ],
+    "secondaryYearSourceId": 0,
+    "sortTitle": "captain marvel",
+    "sizeOnDisk": 0,
+    "status": "announced",
+    "overview": "The story follows Carol Danvers as she becomes one of the universe’s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe.",
+    "inCinemas": "2019-03-06T03:00:00Z",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/5/poster.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/5/fanart.jpg"
+      }
+    ],
+    "website": "https://www.marvel.com/movies/captain-marvel",
+    "downloaded": false,
+    "year": 2019,
+    "hasFile": false,
+    "youTubeTrailerId": "Z1BCujX3pw8",
+    "studio": "Marvel Studios",
+    "path": "/movies/Captain Marvel (2019)",
+    "profileId": 7,
+    "pathState": "static",
+    "monitored": true,
+    "minimumAvailability": "released",
+    "isAvailable": false,
+    "folderName": "/movies/Captain Marvel (2019)",
+    "runtime": 0,
+    "lastInfoSync": "2019-02-01T16:32:32.365656Z",
+    "cleanTitle": "captainmarvel",
+    "imdbId": "tt4154664",
+    "tmdbId": 299537,
+    "titleSlug": "captain-marvel-299537",
+    "genres": [],
+    "tags": [],
+    "added": "2019-01-22T19:54:35.659528Z",
+    "ratings": {
+      "votes": 0,
+      "value": 0.0
+    },
+    "qualityProfileId": 7,
+    "id": 5
+  }
+]

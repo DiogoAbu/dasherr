@@ -1,0 +1,33 @@
+{
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["node_modules/**", "android/**", "ios/**"]
+  },
+  "rules": {
+    "interface-name": false,
+    "jsx-space-before-trailing-slash": true,
+    "member-access": false,
+    "member-ordering": false,
+    "no-console": [false, "log"],
+    "no-empty-interface": false,
+    "no-submodule-imports": [true, "react-native-vector-icons"],
+    "object-literal-sort-keys": false,
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "import-sources-order": "lowercase-last",
+        "named-imports-order": "lowercase-last"
+      }
+    ],
+    "prettier": true,
+    "variable-name": [
+      true,
+      "allow-leading-underscore",
+      "allow-pascal-case",
+      "ban-keywords",
+      "check-format"
+    ]
+  },
+  "rulesDirectory": ["tslint-plugin-prettier"]
+}

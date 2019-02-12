@@ -1,0 +1,13 @@
+diff --git a/node_modules/@types/react-native-snap-carousel/index.d.ts b/node_modules/@types/react-native-snap-carousel/index.d.ts
+index 5b4b10d..363994b 100644
+--- a/node_modules/@types/react-native-snap-carousel/index.d.ts
++++ b/node_modules/@types/react-native-snap-carousel/index.d.ts
+@@ -38,6 +38,8 @@ export interface CarouselProps<T> extends React.Props<ScrollViewProps> {
+      * Array of items to loop over
+      */
+     data: ReadonlyArray<T>;
++
++    extraData?: any;
+     /**
+      * Function that takes an item from the `data` array and returns a React
+      * Element. See `react-native`'s `FlatList`

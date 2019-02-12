@@ -1,0 +1,147 @@
+{
+  "page": 1,
+  "pageSize": 25,
+  "sortKey": "date",
+  "sortDirection": "descending",
+  "totalRecords": 2,
+  "records": [
+    {
+      "title": "Captain Marvel",
+      "alternativeTitles": [
+        {
+          "sourceType": "tmdb",
+          "movieId": 5,
+          "title": "Untitled Marvel Project",
+          "sourceId": 299537,
+          "votes": 0,
+          "voteCount": 0,
+          "language": "english",
+          "id": 6
+        }
+      ],
+      "secondaryYearSourceId": 0,
+      "sortTitle": "captain marvel",
+      "sizeOnDisk": 0,
+      "status": "announced",
+      "overview": "The story follows Carol Danvers as she becomes one of the universe’s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe.",
+      "inCinemas": "2019-03-06T03:00:00Z",
+      "images": [
+        {
+          "coverType": "poster",
+          "url": "http://image.tmdb.org/t/p/original/vW2dy7UyZqqpEP3bHageT9bei0o.jpg"
+        },
+        {
+          "coverType": "fanart",
+          "url": "http://image.tmdb.org/t/p/original/d1hQaeKeAW3FBc3v6tIP5utleU0.jpg"
+        }
+      ],
+      "website": "https://www.marvel.com/movies/captain-marvel",
+      "downloaded": false,
+      "year": 2019,
+      "hasFile": false,
+      "youTubeTrailerId": "Z1BCujX3pw8",
+      "studio": "Marvel Studios",
+      "path": "/movies/Captain Marvel (2019)",
+      "profileId": 7,
+      "pathState": "static",
+      "monitored": true,
+      "minimumAvailability": "released",
+      "isAvailable": false,
+      "folderName": "/movies/Captain Marvel (2019)",
+      "runtime": 0,
+      "lastInfoSync": "2019-02-01T16:32:32.365656Z",
+      "cleanTitle": "captainmarvel",
+      "imdbId": "tt4154664",
+      "tmdbId": 299537,
+      "titleSlug": "captain-marvel-299537",
+      "genres": [],
+      "tags": [],
+      "added": "2019-01-22T19:54:35.659528Z",
+      "ratings": {
+        "votes": 0,
+        "value": 0.0
+      },
+      "qualityProfileId": 7,
+      "id": 5
+    },
+    {
+      "title": "Avengers: Endgame",
+      "alternativeTitles": [
+        {
+          "sourceType": "tmdb",
+          "movieId": 4,
+          "title": "Avengers 4",
+          "sourceId": 299534,
+          "votes": 0,
+          "voteCount": 0,
+          "language": "english",
+          "id": 3
+        },
+        {
+          "sourceType": "tmdb",
+          "movieId": 4,
+          "title": "Avengers: Infinity Gauntlet",
+          "sourceId": 299534,
+          "votes": 0,
+          "voteCount": 0,
+          "language": "english",
+          "id": 4
+        },
+        {
+          "sourceType": "tmdb",
+          "movieId": 4,
+          "title": "Avengers: Annihilation",
+          "sourceId": 299534,
+          "votes": 0,
+          "voteCount": 0,
+          "language": "english",
+          "id": 5
+        }
+      ],
+      "secondaryYearSourceId": 0,
+      "sortTitle": "avengers endgame",
+      "sizeOnDisk": 0,
+      "status": "announced",
+      "overview": "A culmination of 22 interconnected films and the finale of this epic journey across the length and breadth of the Marvel Cinematic Universe.  Our beloved heroes will truly understand how fragile this reality is and the sacrifices that must be made to uphold it.",
+      "inCinemas": "2019-04-24T03:00:00Z",
+      "images": [
+        {
+          "coverType": "poster",
+          "url": "http://image.tmdb.org/t/p/original/bJLYrLIHT1r7cikhWGbpZkxlUpA.jpg"
+        },
+        {
+          "coverType": "fanart",
+          "url": "http://image.tmdb.org/t/p/original/aw8niyYZNTonD1ep5vMZm9LZ26Z.jpg"
+        }
+      ],
+      "website": "https://www.marvel.com/movies/avengers-endgame",
+      "downloaded": false,
+      "year": 2019,
+      "hasFile": false,
+      "youTubeTrailerId": "hA6hldpSTF8",
+      "studio": "Marvel Studios",
+      "path": "/movies/Avengers Endgame (2019)",
+      "profileId": 7,
+      "pathState": "static",
+      "monitored": false,
+      "minimumAvailability": "released",
+      "isAvailable": false,
+      "folderName": "/movies/Avengers Endgame (2019)",
+      "runtime": 180,
+      "lastInfoSync": "2019-02-01T16:32:29.497903Z",
+      "cleanTitle": "avengersendgame",
+      "imdbId": "tt4154796",
+      "tmdbId": 299534,
+      "titleSlug": "avengers-endgame-299534",
+      "genres": [],
+      "tags": [],
+      "added": "2019-01-22T19:54:24.640242Z",
+      "ratings": {
+        "votes": 0,
+        "value": 0.0
+      },
+      "qualityProfileId": 7,
+      "id": 4
+    }
+  ]
+}

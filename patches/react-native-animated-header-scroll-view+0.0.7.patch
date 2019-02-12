@@ -1,0 +1,97 @@
+diff --git a/node_modules/react-native-animated-header-scroll-view/index.js b/node_modules/react-native-animated-header-scroll-view/index.js
+index 538faa7..6abff93 100644
+--- a/node_modules/react-native-animated-header-scroll-view/index.js
++++ b/node_modules/react-native-animated-header-scroll-view/index.js
+@@ -7,6 +7,7 @@ const HEADER_MAX_HEIGHT = 160;
+ const ROOT_CHILDREN_HEIGHT = 60;
+ 
+ export default class AnimatedHeaderScrollView extends React.Component {
++    contentScroll = React.createRef();
+ 
+     data = {
+         scrollY: new Animated.Value(0),
+@@ -38,6 +39,10 @@ export default class AnimatedHeaderScrollView extends React.Component {
+         });
+     }
+ 
++    scrollTo(...args) {
++        return this.contentScroll.current.getNode().scrollTo(...args);
++    }
++
+     getScroll() {
+         return this.data.scrollY;
+     }
+@@ -46,41 +51,50 @@ export default class AnimatedHeaderScrollView extends React.Component {
+         return this.conf;
+     }
+ 
++    onScroll = Animated.event(
++        [{ nativeEvent: { contentOffset: { y: this.data.scrollY } } }],
++        { useNativeDriver: true },
++    );
++
+     render() {
+-        let {onScroll} = this.props;
+-        let {scrollY} = this.data;
++        let {rootChildrenPadding} = this.props;
++
++        return (
++            <View style={styles.container}>
++                <Animated.ScrollView
++                    style={styles.containerScroll}
++                    ref={this.contentScroll}
++                    scrollEventThrottle={1}
++                    onScroll={this.onScroll}
++                >
++                    <View style={{height: this.conf.headerMaxHeight + rootChildrenPadding}}/>
++                    {this.props.children}
++                </Animated.ScrollView>
++                
++                <Animated.View style={[styles.resizingHeader,
++                    {height: this.conf.headerMaxHeight, transform: [{translateY: this.headerY}]}]}>
++                </Animated.View>
++
++                <View style={[styles.headerChildren, {height: this.conf.headerMaxHeight}]}>
++                    {this.props.headerChildren}
++                </View>
+ 
+-        return (<View style={styles.container}>
+-            <Animated.ScrollView style={styles.container}
+-                                 scrollEventThrottle={1}
+-                                 onScroll={Animated.event(
+-                                     [{nativeEvent: {contentOffset: {y: scrollY}}}],
+-                                     {useNativeDriver: true}
+-                                     // {listener: () => onScroll ? onScroll() : null}
+-                                 )}>
+-                <View style={{height: this.conf.headerMaxHeight}}/>
+-                {this.props.children}
+-            </Animated.ScrollView>
+-            <Animated.View style={[styles.resizingHeader,
+-                {height: this.conf.headerMaxHeight, transform: [{translateY: this.headerY}]}]}>
+-            </Animated.View>
+-            <View style={[styles.headerChildren, {height: this.conf.headerMaxHeight}]}>
+-                {this.props.headerChildren}
++                <Animated.View style={[styles.floatingControls, {transform: [{translateY: this.controlsY}]}]}>
++                    {this.props.rootChildren}
++                </Animated.View>
+             </View>
+-            <Animated.View style={[styles.floatingControls, {transform: [{translateY: this.controlsY}]}]}>
+-                {this.props.rootChildren}
+-            </Animated.View>
+-        </View>);
++        );
+     }
+ }
+ 
+ const styles = StyleSheet.create({
+     container: {flex: 1},
++    containerScroll: {flexGrow:1},
+     resizingHeader: {
+         position: 'absolute',
+         top: 0, left: 0, right: 0, bottom: 0,
+ 
+-        backgroundColor: '#48e',
++        // backgroundColor: '#48e',
+         elevation: 10,
+     },
+     headerChildren: {

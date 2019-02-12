@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-native-color-wheel/ColorWheel.js b/node_modules/react-native-color-wheel/ColorWheel.js
+index 9238582..f8a98f3 100644
+--- a/node_modules/react-native-color-wheel/ColorWheel.js
++++ b/node_modules/react-native-color-wheel/ColorWheel.js
+@@ -25,6 +25,7 @@ export class ColorWheel extends Component {
+       offset: {x: 0, y: 0},
+       currentColor: props.initialColor,
+       pan: new Animated.ValueXY(),
++      radius: 1,
+     }
+   }
+ 

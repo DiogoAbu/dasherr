@@ -1,0 +1,45 @@
+{
+  "Welcome": "Welcome",
+  "Servers": "Servers",
+  "Server": "Server",
+
+  "Icon": "Icon",
+  "Icons": "Icons",
+  "Icon Color": "Icon Color",
+  "Icon Colors": "Icon Colors",
+
+  "Movies": "Movies",
+  "Series": "Series",
+
+  "New": "New",
+  "Soon": "Soon",
+  "All": "All",
+
+  "Show Movies": "Show Movies",
+  "Show Series": "Show Series",
+  "Settings": "Settings",
+  "Change Language": "Change Language",
+  "Current: {val}": "Current: %{val}",
+
+  "Recommended": "Recommended",
+  "Qualities": "Qualities",
+
+  "Tap above to add a server, you can add as much as you want to": "Tap above to add a server, you can add as much as you want to.",
+  "When done tap below": "When done tap below.",
+  "Nothing downloaded or wanted": "Nothing downloaded or wanted",
+  "This movie is not monitored": "This movie is not monitored",
+  "Search for an Icon": "Search for an Icon",
+  "No more icons": "No more icons",
+  "Getting more": "Getting more...",
+
+  "Add": "Add",
+  "Save": "Save",
+  "Done": "Done",
+
+  "Name": "Name",
+  "Name Placeholder": "Friendly server name",
+  "Connection Address": "Connection Address",
+  "Connection Address Placeholder": "Example: http://192.168.1.33:7878/radarr",
+  "API Key": "API Key",
+  "API Key Placeholder": "Found under: Settings -> General"
+}

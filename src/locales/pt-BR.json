@@ -1,0 +1,45 @@
+{
+  "Welcome": "Bem-vindo",
+  "Servers": "Servidores",
+  "Server": "Servidor",
+
+  "Icon": "Ícone",
+  "Icons": "Ícones",
+  "Icon Color": "Cor do Ícone",
+  "Icon Colors": "Cores de Ícone",
+
+  "Movies": "Filmes",
+  "Series": "Series",
+
+  "New": "Recentes",
+  "Soon": "Em Breve",
+  "All": "Tudo",
+
+  "Show Movies": "Mostrar Filmes",
+  "Show Series": "Mostrar Series",
+  "Settings": "Preferências",
+  "Change Language": "Mudar Idioma",
+  "Current: {val}": "Atual: %{val}",
+
+  "Recommended": "Recomendados",
+  "Qualities": "Qualidades",
+
+  "Tap above to add a server, you can add as much as you want to": "Toque acima para adicionar um servidor, você pode adicionar quantos quiser.",
+  "When done tap below": "Quando acabar toque abaixo.",
+  "Nothing downloaded or wanted": "Nada baixado ou desejado",
+  "This movie is not monitored": "Este filme não é monitorado",
+  "Search for an Icon": "Procure por um Ícone",
+  "No more icons": "Mais nada para mostrar",
+  "Getting more": "Carregando mais...",
+
+  "Add": "Adicionar",
+  "Save": "Salvar",
+  "Done": "Feito",
+
+  "Name": "Nome",
+  "Name Placeholder": "Nome para o servidor",
+  "Connection Address": "Endereço de conexão",
+  "Connection Address Placeholder": "Exemplo: http://192.168.1.33:7878/radarr",
+  "API Key": "Chave API",
+  "API Key Placeholder": "Encontrado em: Settings -> General"
+}
