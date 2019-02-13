@@ -14,7 +14,7 @@ const theme: Theme = {
   $listItemIconHeight: 42,
 
   $statusBarStyle: 'light-content',
-  $statusBarBgColor: 'rgba(0,0,0,0.4)',
+  $statusBarBgColor: 'rgba(0,0,0,0.3)',
   $statusBarTranslucent: true,
 
   $tabFontSize: '$fontSizeSx',

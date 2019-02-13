@@ -73,6 +73,7 @@ class HeaderMenu extends React.Component<Props, State> {
           >
             <Animatable.Text
               ref={this.new}
+              numberOfLines={1}
               style={[
                 styles.text,
                 this.state.current === 'new' && styles.textActive,
@@ -91,6 +92,7 @@ class HeaderMenu extends React.Component<Props, State> {
           >
             <Animatable.Text
               ref={this.soon}
+              numberOfLines={1}
               style={[
                 styles.text,
                 this.state.current === 'soon' && styles.textActive,
@@ -109,6 +111,7 @@ class HeaderMenu extends React.Component<Props, State> {
           >
             <Animatable.Text
               ref={this.all}
+              numberOfLines={1}
               style={[
                 styles.text,
                 this.state.current === 'all' && styles.textActive,
@@ -130,10 +133,11 @@ const styles = EStyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     margin: 6,
-    marginTop: 30,
+    marginTop: 24,
   },
   textTouch: {
     padding: 12,
+    flexWrap: 'nowrap',
   },
   text: {
     color: '$textColorFaded',

@@ -5,7 +5,6 @@ import React from 'react';
 import { AsyncStorage } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-import { Loading } from './components';
 import { setupLocale } from './locales';
 import { Root } from './screens';
 import stores from './stores';
@@ -65,7 +64,7 @@ export default class App extends React.Component<{}, State> {
 
   render() {
     if (this.state.loading === true) {
-      return <Loading />;
+      return null;
     }
 
     return (

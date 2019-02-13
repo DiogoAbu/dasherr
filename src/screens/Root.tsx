@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import React from 'react';
-import { View } from 'react-native';
+import { Animated, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { createAppContainer } from 'react-navigation';
 import { createFluidNavigator } from 'react-navigation-fluid-transitions';
@@ -23,15 +23,32 @@ interface Props {
   radarr?: RadarrStore;
 }
 
+interface State {
+  opacity: Animated.AnimatedValue;
+}
+
+const initialState: State = {
+  opacity: new Animated.Value(0),
+};
+
 @inject('general', 'radarr')
 @observer
-class Root extends React.Component<Props> {
+class Root extends React.Component<Props, State> {
+  readonly state = initialState;
+
   hasAnyServer = false;
 
   componentWillMount() {
     // This dereferences and just copies the value once
     // Future updates will not be tracked
     this.hasAnyServer = this.props.radarr!.hasServer;
+  }
+
+  componentDidMount() {
+    Animated.timing(this.state.opacity, {
+      toValue: 1,
+      duration: 750,
+    }).start();
   }
 
   // Reacts to changes on props used in render
@@ -61,16 +78,21 @@ class Root extends React.Component<Props> {
       {
         initialRouteName: route,
         initialRouteParams: params,
+        cardStyle: {
+          backgroundColor: EStyleSheet.value('$bgColor'),
+        },
       },
     );
     const RootContainer = createAppContainer(RootNavigator);
 
     return (
-      <View style={styles.container}>
+      <Animated.View
+        style={[styles.container, { opacity: this.state.opacity }]}
+      >
         <StatusBar />
         <RootContainer />
         <Flasher />
-      </View>
+      </Animated.View>
     );
   }
 }
@@ -80,6 +102,7 @@ const styles = EStyleSheet.create({
     flex: 1,
     position: 'relative',
     backgroundColor: '$bgColor',
+    opacity: 0,
   },
 });
 

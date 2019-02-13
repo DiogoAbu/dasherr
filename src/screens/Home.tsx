@@ -1,3 +1,4 @@
+import { computed } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import React from 'react';
 import {
@@ -50,6 +51,11 @@ class Home extends React.Component<Props, State> {
   readonly state = initialState;
 
   carousel = React.createRef<any>();
+
+  @computed
+  get numColumns() {
+    return this.props.general.isLandscape ? 5 : 3;
+  }
 
   componentWillMount() {
     this.setState({ data: this.props.radarr.moviesImdbWithFileByNew });
@@ -130,7 +136,7 @@ class Home extends React.Component<Props, State> {
   renderPoster = ({ item }: { item: string }) => (
     <Poster
       imdbId={item}
-      width={this.props.general.window.width / 3}
+      width={this.props.general.window.width / this.numColumns}
       onPress={this.onPressPoster}
       shadowBorder={6}
       shadowRadius={12}
@@ -182,7 +188,7 @@ class Home extends React.Component<Props, State> {
               extraData={this.state.filters}
               renderItem={this.renderPoster}
               keyExtractor={this.handleKeyExtractor}
-              numColumns={3}
+              numColumns={this.numColumns}
               decelerationRate="fast"
               contentContainerStyle={styles.smallPosterListContainer}
             />
@@ -200,16 +206,18 @@ class Home extends React.Component<Props, State> {
           )}
         </Animated.View>
 
-        <View style={styles.iconContainer}>
-          <TouchableItem
-            onPress={this.onPressIconDown}
-            borderless={true}
-            useForeground={true}
-            style={styles.iconTouch}
-          >
-            <Icon name="chevron-down" style={styles.icon} />
-          </TouchableItem>
-        </View>
+        {!this.state.showingAll && (
+          <View style={styles.iconContainer}>
+            <TouchableItem
+              onPress={this.onPressIconDown}
+              borderless={true}
+              useForeground={true}
+              style={styles.iconTouch}
+            >
+              <Icon name="chevron-down" style={styles.icon} />
+            </TouchableItem>
+          </View>
+        )}
 
         <FloatingAction
           navigation={this.props.navigation}
@@ -235,6 +243,7 @@ const styles = EStyleSheet.create({
 
   smallPosterListContainer: {
     flexGrow: 1,
+    marginTop: 12,
   },
 
   filterContainer: {

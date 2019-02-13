@@ -7,7 +7,7 @@ import { GeneralStore, Stores } from '../stores';
 
 interface Props {
   theme?: GeneralStore['theme'];
-  networkActivity?: boolean;
+  networkActivity?: GeneralStore['networkActivity'];
 }
 
 const StatusBar: React.FunctionComponent<Props> = ({ networkActivity }) => (
