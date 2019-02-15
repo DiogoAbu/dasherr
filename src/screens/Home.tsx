@@ -23,11 +23,11 @@ import {
   TouchableItem,
 } from '../components';
 import { localize } from '../locales';
-import { GeneralStore, RadarrStore } from '../stores';
+import { GeneralStore, ServerStore } from '../stores';
 
 interface Props {
   general: GeneralStore;
-  radarr: RadarrStore;
+  server: ServerStore;
   navigation: NavigationScreenProp<any>;
 }
 
@@ -45,7 +45,7 @@ const initialState: State = {
   opacityMovieList: new Animated.Value(1),
 };
 
-@inject('general', 'radarr')
+@inject('general', 'server')
 @observer
 class Home extends React.Component<Props, State> {
   readonly state = initialState;
@@ -58,7 +58,7 @@ class Home extends React.Component<Props, State> {
   }
 
   componentWillMount() {
-    this.setState({ data: this.props.radarr.moviesImdbWithFileByNew });
+    this.setState({ data: this.props.server.moviesImdbWithFileByNew });
   }
 
   hideMovieList = (callback?: () => void) => {
@@ -90,12 +90,12 @@ class Home extends React.Component<Props, State> {
         let showingAll = false;
 
         if (sort === 'all') {
-          data = this.props.radarr.moviesImdb;
+          data = this.props.server.moviesImdb;
           showingAll = true;
         } else if (sort === 'new') {
-          data = this.props.radarr.moviesImdbWithFileByNew;
+          data = this.props.server.moviesImdbWithFileByNew;
         } else {
-          data = this.props.radarr.moviesImdbQueuedByProgress;
+          data = this.props.server.moviesImdbQueuedByProgress;
         }
 
         this.setState({ data, showingAll }, this.showMovieList);

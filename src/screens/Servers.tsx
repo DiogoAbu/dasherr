@@ -8,10 +8,10 @@ import { NavigationActions, NavigationScreenProp } from 'react-navigation';
 import { Header, ListItem } from '../components';
 import { ListItemProps } from '../components/ListItem';
 import { localize } from '../locales';
-import { RadarrStore } from '../stores';
+import { ServerStore } from '../stores';
 
 interface Props {
-  radarr: RadarrStore;
+  server: ServerStore;
   navigation: NavigationScreenProp<any>;
 }
 
@@ -25,7 +25,7 @@ const initialState: State = {
   selectedServers: [],
 };
 
-@inject('radarr')
+@inject('server')
 @observer
 class Servers extends React.Component<Props, State> {
   readonly state = initialState;
@@ -38,10 +38,10 @@ class Servers extends React.Component<Props, State> {
 
   onPressRemove = () => {
     this.state.selectedServers.map(serverId => {
-      this.props.radarr.remove(serverId);
+      this.props.server.remove(serverId);
     });
 
-    if (!this.props.radarr.hasServer) {
+    if (!this.props.server.hasServer) {
       // @ts-ignore
       this.props.navigation.reset(
         [NavigationActions.navigate({ routeName: 'Welcome' })],
@@ -76,7 +76,7 @@ class Servers extends React.Component<Props, State> {
   render() {
     const { selectedServers } = this.state;
 
-    const data = this.props.radarr.serversData.map(
+    const data = this.props.server.serversData.map(
       (server): ListItemProps => {
         const isSelected = selectedServers.includes(server.id!);
         return {

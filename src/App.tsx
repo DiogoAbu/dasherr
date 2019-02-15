@@ -29,7 +29,7 @@ export default class App extends React.Component<{}, State> {
     // await stores.purgeAll();
 
     await hydrate('general', stores.general);
-    await hydrate('radarr', stores.radarr);
+    await hydrate('server', stores.server);
 
     // Build with persisted theme
     EStyleSheet.build(dark);
@@ -44,10 +44,10 @@ export default class App extends React.Component<{}, State> {
   prePopulate() {
     if (__DEV__) {
       try {
-        stores.radarr.add({
+        stores.server.add({
           id: 0,
           name: 'Remote Seedbox',
-          icon: 'server',
+          icon: 'ubuntu',
           iconColor: '#e67e22',
           uri: 'http://192.168.1.33:7878',
           uriLocal: 'http://192.168.1.33:7878',
@@ -59,7 +59,7 @@ export default class App extends React.Component<{}, State> {
       }
     }
 
-    stores.radarr.mock();
+    stores.server.mockRadarr();
   }
 
   render() {

@@ -49,7 +49,7 @@ export interface MovieAlternativeTitle {
 }
 
 export interface MovieImage {
-  coverType: string;
+  coverType: 'poster' | 'fanart';
   url: string;
 }
 
@@ -61,11 +61,11 @@ export interface MovieFile {
   sceneName: string;
   quality: MovieFileQuality;
   edition: string;
-  mediaInfo: MediaInfo;
+  mediaInfo: MovieMediaInfo;
   id: number;
 }
 
-export interface MediaInfo {
+export interface MovieMediaInfo {
   containerFormat: string;
   videoFormat: string;
   videoCodecID: string;
@@ -97,12 +97,12 @@ export interface MediaInfo {
 }
 
 export interface MovieFileQuality {
-  quality: QualityInfo;
+  quality: MovieQualityInfo;
   customFormats: any[];
   revision: MovieRevision;
 }
 
-export interface QualityInfo {
+export interface MovieQualityInfo {
   id: number;
   name: string;
   source: string;
@@ -145,7 +145,160 @@ export interface MovieWanted {
   records: Movie[];
 }
 
-// Stores
+// Series
+export interface Series {
+  title: string;
+  alternateTitles?: any[];
+  sortTitle: string;
+  seasonCount: number;
+  totalEpisodeCount?: number;
+  episodeCount?: number;
+  episodeFileCount?: number;
+  sizeOnDisk?: number;
+  status: string;
+  overview: string;
+  nextAiring?: string;
+  previousAiring?: string;
+  network: string;
+  airTime: string;
+  images: SeriesImage[];
+  seasons: SeriesSeason[];
+  year: number;
+  path: string;
+  profileId: number;
+  seasonFolder: boolean;
+  monitored: boolean;
+  useSceneNumbering: boolean;
+  runtime: number;
+  tvdbId: number;
+  tvRageId: number;
+  tvMazeId: number;
+  firstAired: string;
+  lastInfoSync: string;
+  seriesType: string;
+  cleanTitle: string;
+  imdbId: string;
+  titleSlug: string;
+  certification: string;
+  genres: string[];
+  tags: string[];
+  added: string;
+  ratings: SeriesRatings;
+  qualityProfileId: number;
+  id: number;
+}
+
+export interface SeriesImage {
+  coverType: 'poster' | 'fanart' | 'banner';
+  url: string;
+}
+
+export interface SeriesRatings {
+  votes: number;
+  value: number;
+}
+
+export interface SeriesSeason {
+  seasonNumber: number;
+  monitored: boolean;
+  statistics: SeriesStatistics;
+}
+
+export interface SeriesStatistics {
+  episodeFileCount: number;
+  episodeCount: number;
+  totalEpisodeCount: number;
+  sizeOnDisk: number;
+  percentOfEpisodes: number;
+  nextAiring?: string;
+  previousAiring?: string;
+}
+
+export interface Episode {
+  seriesId: number;
+  episodeFileId: number;
+  seasonNumber: number;
+  episodeNumber: number;
+  title: string;
+  airDate: string;
+  airDateUtc: string;
+  overview: string;
+  episodeFile?: EpisodeFile;
+  hasFile: boolean;
+  monitored: boolean;
+  absoluteEpisodeNumber: number;
+  unverifiedSceneNumbering: boolean;
+  id: number;
+}
+
+export interface EpisodeFile {
+  seriesId: number;
+  seasonNumber: number;
+  relativePath: string;
+  path: string;
+  size: number;
+  dateAdded: string;
+  sceneName: string;
+  quality: EpisodeFileQuality;
+  mediaInfo: EpisodeMediaInfo;
+  qualityCutoffNotMet: boolean;
+  id: number;
+}
+
+export interface EpisodeMediaInfo {
+  audioChannels: number;
+  audioCodec: string;
+  videoCodec: string;
+}
+
+export interface EpisodeFileQuality {
+  quality: EpisodeQualityInfo;
+  revision: EpisodeRevision;
+}
+
+export interface EpisodeQualityInfo {
+  id: number;
+  name: string;
+  source: string;
+  resolution: number;
+}
+
+export interface EpisodeRevision {
+  version: number;
+  real: number;
+}
+
+export interface SeriesQueue {
+  series?: Series;
+  episode?: Episode;
+  quality: EpisodeFileQuality;
+  size: number;
+  title: string;
+  sizeleft: number;
+  timeleft: string;
+  estimatedCompletionTime: string;
+  status: string;
+  trackedDownloadStatus: string;
+  statusMessages: any[];
+  downloadId: string;
+  protocol: string;
+  id: number;
+}
+
+export interface SeriesWanted {
+  page: number;
+  pageSize: number;
+  sortKey: string;
+  sortDirection: string;
+  totalRecords: number;
+  records: EpisodeWithSeries[];
+}
+
+export interface EpisodeWithSeries extends Episode {
+  series?: Series;
+}
+
+// Movies - Used on Stores
 export interface ServerAndMovie {
   serverId: number;
   imdbId: string;
@@ -157,7 +310,20 @@ export interface MovieFileServer extends ServerAndMovie {
   movieFile: MovieFile;
 }
 
-// Flash Message
+// Series - Used on Stores
+export interface ServerAndSeries {
+  serverId: number;
+  imdbId: string;
+  episodeId: number;
+}
+
+export interface SeriesQueueServer extends SeriesQueue, ServerAndSeries {}
+
+export interface EpisodeFileServer extends ServerAndSeries {
+  episodeFile: EpisodeFile;
+}
+
+// Other
 export interface FlashMessage {
   type: 'success' | 'info' | 'warning' | 'danger';
   title: string;
@@ -166,7 +332,6 @@ export interface FlashMessage {
   stack?: string;
 }
 
-// Server
 export interface Server {
   id?: number;
   name: string;
@@ -178,7 +343,6 @@ export interface Server {
   apiKey: string;
 }
 
-// Server
 export interface ServerError {
   [key: string]: string;
 }
@@ -239,6 +403,7 @@ export interface Theme {
   $fontSizeSs: string;
 }
 
+// Localization
 export interface TranslationGetters {
   [locale: string]: () => any;
 }

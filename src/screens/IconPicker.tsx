@@ -1,4 +1,4 @@
-import { inject, observer } from 'mobx-react';
+import { observer } from 'mobx-react';
 import React from 'react';
 import { FlatList, Keyboard, Text, TextInput, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -36,7 +36,6 @@ const initialState: State = {
 
 let iconNames: string[] = [];
 
-@inject('general', 'radarr')
 @observer
 class IconPicker extends React.Component<Props, State> {
   readonly state = initialState;

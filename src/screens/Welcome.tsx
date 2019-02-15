@@ -8,10 +8,10 @@ import { NavigationActions, NavigationScreenProp } from 'react-navigation';
 import { Header, ListItem, TouchableItem } from '../components';
 import { ListItemProps } from '../components/ListItem';
 import { localize } from '../locales';
-import { RadarrStore } from '../stores';
+import { ServerStore } from '../stores';
 
 interface Props {
-  radarr: RadarrStore;
+  server: ServerStore;
   navigation: NavigationScreenProp<any>;
 }
 
@@ -25,7 +25,7 @@ const initialState: State = {
   selectedServers: [],
 };
 
-@inject('radarr')
+@inject('server')
 @observer
 class Welcome extends React.Component<Props, State> {
   readonly state = initialState;
@@ -38,19 +38,19 @@ class Welcome extends React.Component<Props, State> {
 
   onPressRemove = () => {
     this.state.selectedServers.map(serverId => {
-      this.props.radarr.remove(serverId);
+      this.props.server.remove(serverId);
     });
 
     this.setState(initialState);
   };
 
   onPressDone = async () => {
-    if (!this.props.radarr.hasServer) {
+    if (!this.props.server.hasServer) {
       return;
     }
 
     // Fetch server data
-    await this.props.radarr.mock();
+    await this.props.server.mockRadarr();
 
     // @ts-ignore
     this.props.navigation.reset(
@@ -94,7 +94,7 @@ class Welcome extends React.Component<Props, State> {
   render() {
     const { selectedServers } = this.state;
 
-    const data = this.props.radarr.serversData.map(
+    const data = this.props.server.serversData.map(
       (server): ListItemProps => {
         const isSelected = selectedServers.includes(server.id!);
         return {
@@ -138,7 +138,7 @@ class Welcome extends React.Component<Props, State> {
         <TouchableItem
           onPress={this.onPressDone}
           style={styles.finishedContainer}
-          disabled={!this.props.radarr.hasServer}
+          disabled={!this.props.server.hasServer}
         >
           <Text style={styles.finished}>{localize('Done').toUpperCase()}</Text>
         </TouchableItem>

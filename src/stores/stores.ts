@@ -1,15 +1,15 @@
 import { AsyncStorage } from 'react-native';
 
 import GeneralStore from './general';
-import RadarrStore from './radarr';
+import ServerStore from './server';
 
 export default class Stores {
   general: GeneralStore;
-  radarr: RadarrStore;
+  server: ServerStore;
 
   constructor() {
     this.general = new GeneralStore(this);
-    this.radarr = new RadarrStore(this);
+    this.server = new ServerStore(this);
   }
 
   purge = async (storeName: string) => {
@@ -18,6 +18,6 @@ export default class Stores {
 
   purgeAll = async () => {
     await AsyncStorage.removeItem('general');
-    await AsyncStorage.removeItem('radarr');
+    await AsyncStorage.removeItem('server');
   };
 }

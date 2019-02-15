@@ -1,13 +1,13 @@
 import { inject, observer } from 'mobx-react';
 import React from 'react';
-import { Animated, View } from 'react-native';
+import { Animated } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { createAppContainer } from 'react-navigation';
 import { createFluidNavigator } from 'react-navigation-fluid-transitions';
 
 import { Flasher, StatusBar } from '../components';
 import { setupLocale } from '../locales';
-import { GeneralStore, RadarrStore } from '../stores';
+import { GeneralStore, ServerStore } from '../stores';
 
 import Details from './Details';
 import Home from './Home';
@@ -20,7 +20,7 @@ import Welcome from './Welcome';
 
 interface Props {
   general?: GeneralStore;
-  radarr?: RadarrStore;
+  server?: ServerStore;
 }
 
 interface State {
@@ -31,7 +31,7 @@ const initialState: State = {
   opacity: new Animated.Value(0),
 };
 
-@inject('general', 'radarr')
+@inject('general', 'server')
 @observer
 class Root extends React.Component<Props, State> {
   readonly state = initialState;
@@ -41,7 +41,7 @@ class Root extends React.Component<Props, State> {
   componentWillMount() {
     // This dereferences and just copies the value once
     // Future updates will not be tracked
-    this.hasAnyServer = this.props.radarr!.hasServer;
+    this.hasAnyServer = this.props.server!.hasServer;
   }
 
   componentDidMount() {

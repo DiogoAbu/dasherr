@@ -133,7 +133,7 @@ const styles = EStyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     margin: 6,
-    marginTop: 24,
+    marginTop: 30,
   },
   textTouch: {
     padding: 12,

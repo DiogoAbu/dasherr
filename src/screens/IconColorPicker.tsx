@@ -20,7 +20,7 @@ interface Params {
 }
 
 interface Props {
-  width: number;
+  windowWidth: number;
   navigation: NavigationScreenProp<any, Params>;
 }
 
@@ -35,7 +35,7 @@ const initialState: State = {
 };
 
 @inject(({ general }: Stores) => ({
-  width: general.window.width,
+  windowWidth: general.window.width,
 }))
 class IconColorPicker extends React.Component<Props, {}> {
   readonly state = initialState;
@@ -140,8 +140,8 @@ class IconColorPicker extends React.Component<Props, {}> {
           initialColor={iconColor}
           onColorChange={this.onColorChange}
           style={{
-            width: this.props.width * 0.75,
-            height: this.props.width * 0.75,
+            width: this.props.windowWidth * 0.75,
+            height: this.props.windowWidth * 0.75,
           }}
         />
       </LinearGradient>

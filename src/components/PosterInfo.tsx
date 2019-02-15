@@ -20,9 +20,9 @@ interface Props {
   onPress?(event: GestureResponderEvent, idmbId: string): void;
 
   movie?: Movie;
-  queue?: MovieQueueServer;
-  wanted?: ServerAndMovie;
-  images?: ServerAndMovie;
+  moviesQueue?: MovieQueueServer;
+  moviesWanted?: ServerAndMovie;
+  moviesImages?: ServerAndMovie;
 }
 
 const PosterInfo: React.FunctionComponent<Props> = ({
@@ -84,9 +84,9 @@ const styles = EStyleSheet.create({
   },
 });
 
-export default inject(({ radarr }: Stores, { imdbId }: Props) => ({
-  movie: radarr.movies.find(e => e.imdbId === imdbId),
-  queue: radarr.queue.find(e => e.imdbId === imdbId),
-  wanted: radarr.wanted.find(e => e.imdbId === imdbId),
-  images: radarr.images.find(e => e.imdbId === imdbId),
+export default inject(({ server }: Stores, { imdbId }: Props) => ({
+  movie: server.movies.find(e => e.imdbId === imdbId),
+  moviesQueue: server.moviesQueue.find(e => e.imdbId === imdbId),
+  moviesWanted: server.moviesWanted.find(e => e.imdbId === imdbId),
+  moviesImages: server.moviesImages.find(e => e.imdbId === imdbId),
 }))(PosterInfo);

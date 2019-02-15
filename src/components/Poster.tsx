@@ -74,9 +74,9 @@ const Poster: React.FunctionComponent<Props> = ({
   );
 };
 
-export default inject(({ radarr }: Stores) => ({
-  posterWidth: radarr.posterWidth,
-  posterHeight: radarr.posterHeight,
+export default inject(({ server }: Stores) => ({
+  posterWidth: server.posterWidth,
+  posterHeight: server.posterHeight,
 }))(Poster);
 
 const getPoster = (imdbId: string) => {

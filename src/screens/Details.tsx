@@ -28,10 +28,10 @@ import {
 
 interface Props {
   movie?: Movie;
-  queue?: MovieQueueServer;
-  wanted?: ServerAndMovie;
-  files?: MovieFileServer[];
-  images?: ServerAndMovie;
+  moviesQueue?: MovieQueueServer;
+  moviesWanted?: ServerAndMovie;
+  moviesFiles?: MovieFileServer[];
+  moviesImages?: ServerAndMovie;
   posterWidth?: number;
   posterHeight?: number;
   windowWidth?: number;
@@ -50,16 +50,16 @@ const initialState: State = {
   fanartY: 0,
 };
 
-@inject(({ radarr, general }: Stores, { navigation }: Props) => {
+@inject(({ server, general }: Stores, { navigation }: Props) => {
   const imdbId = navigation.getParam('imdbId');
   return {
-    movie: radarr.movies.find(e => e.imdbId === imdbId),
-    queue: radarr.queue.find(e => e.imdbId === imdbId),
-    wanted: radarr.wanted.find(e => e.imdbId === imdbId),
-    files: radarr.files.filter(e => e.imdbId === imdbId),
-    images: radarr.images.find(e => e.imdbId === imdbId),
-    posterWidth: radarr.posterWidth,
-    posterHeight: radarr.posterHeight,
+    movie: server.movies.find(e => e.imdbId === imdbId),
+    moviesQueue: server.moviesQueue.find(e => e.imdbId === imdbId),
+    moviesWanted: server.moviesWanted.find(e => e.imdbId === imdbId),
+    moviesFiles: server.moviesFiles.filter(e => e.imdbId === imdbId),
+    moviesImages: server.moviesImages.find(e => e.imdbId === imdbId),
+    posterWidth: server.posterWidth,
+    posterHeight: server.posterHeight,
     windowWidth: general.window.width,
   };
 })
@@ -196,9 +196,9 @@ class Details extends React.Component<Props, State> {
 
     const qualities: ListItemProps[] = [];
 
-    if (this.props.files!.length > 0) {
+    if (this.props.moviesFiles!.length > 0) {
       qualities.push(
-        ...this.props.files!.map(
+        ...this.props.moviesFiles!.map(
           (each, index): ListItemProps => ({
             key: (100 * index).toString(),
             left: 'cloud-download',

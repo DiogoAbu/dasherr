@@ -8,7 +8,7 @@ import { NavigationScreenProp } from 'react-navigation';
 
 import { Header, ListInput, TouchableItem } from '../components';
 import { localize } from '../locales';
-import { RadarrStore } from '../stores';
+import { ServerStore } from '../stores';
 import { Server } from '../types';
 
 interface Params {
@@ -16,7 +16,7 @@ interface Params {
 }
 
 interface Props {
-  radarr: RadarrStore;
+  server: ServerStore;
   navigation: NavigationScreenProp<any, Params>;
 }
 
@@ -44,7 +44,7 @@ const initialState: State = {
   isWaiting: false,
 };
 
-@inject('radarr')
+@inject('server')
 @observer
 class ServerEdit extends React.Component<Props, State> {
   readonly state = initialState;
@@ -52,7 +52,7 @@ class ServerEdit extends React.Component<Props, State> {
   componentWillMount() {
     const serverId = this.props.navigation.getParam('serverId', -1);
     if (serverId > -1) {
-      const server = this.props.radarr.getServer(serverId);
+      const server = this.props.server.getServer(serverId);
 
       this.setState({
         id: server.id,
@@ -100,7 +100,7 @@ class ServerEdit extends React.Component<Props, State> {
         apiKey: this.state.apiKey!,
       };
 
-      this.props.radarr.add(server);
+      this.props.server.add(server);
 
       requestAnimationFrame(() => {
         Keyboard.dismiss();
@@ -195,7 +195,7 @@ class ServerEdit extends React.Component<Props, State> {
             label={localize('Name')}
             message={errorName}
             placeholder={localize('Name Placeholder')}
-            maxLength={this.props.radarr.nameMaxLength}
+            maxLength={this.props.server.serverNameMaxLength}
             onChangeText={this.onChangeTextName}
             value={this.state.name}
             containerStyle={styles.inputContainer}

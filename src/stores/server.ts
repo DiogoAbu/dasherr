@@ -1,10 +1,25 @@
 import * as Parallel from 'async-parallel';
+import lodash from 'lodash';
 import { action, computed, observable } from 'mobx';
 import { persist } from 'mobx-persist';
 import { createTransformer } from 'mobx-utils';
 import { stringify } from 'query-string';
 
-import { Server, ServerError } from '../types';
+import {
+  Episode,
+  EpisodeFileServer,
+  Movie,
+  MovieFileServer,
+  MovieQueue,
+  MovieQueueServer,
+  MovieWanted,
+  Series,
+  SeriesQueueServer,
+  Server,
+  ServerAndMovie,
+  ServerAndSeries,
+  ServerError,
+} from '../types';
 
 import Stores from './stores';
 
@@ -15,16 +30,58 @@ export default class ServerStore {
 
   stores: Stores;
 
+  posterWidth: number = 333;
+  posterHeight: number = 500;
+
+  serverNameMaxLength = 48;
+
   @persist('map')
   @observable
   servers: Map<number, Server> = new Map();
 
-  nameMaxLength = 48;
+  @persist('list')
+  @observable
+  movies: Movie[] = [];
 
-  getServer = createTransformer((id: number) => {
-    // @ts-ignore
-    return this.servers.get(id.toString());
-  });
+  @persist('list')
+  @observable
+  series: Series[] = [];
+
+  @persist('list')
+  @observable
+  episodes: Episode[] = [];
+
+  @persist('list')
+  @observable
+  moviesQueue: MovieQueueServer[] = [];
+
+  @persist('list')
+  @observable
+  seriesQueue: SeriesQueueServer[] = [];
+
+  @persist('list')
+  @observable
+  moviesWanted: ServerAndMovie[] = [];
+
+  @persist('list')
+  @observable
+  seriesWanted: ServerAndSeries[] = [];
+
+  @persist('list')
+  @observable
+  moviesFiles: MovieFileServer[] = [];
+
+  @persist('list')
+  @observable
+  seriesFiles: EpisodeFileServer[] = [];
+
+  @persist('list')
+  @observable
+  moviesImages: ServerAndMovie[] = [];
+
+  @persist('list')
+  @observable
+  seriesImages: ServerAndSeries[] = [];
 
   @computed
   get hasServer() {
@@ -36,6 +93,31 @@ export default class ServerStore {
     return [...this.servers.values()];
   }
 
+  @computed
+  get moviesImdb() {
+    return this.movies.map(({ imdbId }) => imdbId);
+  }
+
+  @computed
+  get moviesImdbWithFileByNew() {
+    return lodash
+      .sortBy(this.moviesFiles, [e => e.movieFile.dateAdded])
+      .map(({ imdbId }) => imdbId);
+  }
+
+  @computed
+  get moviesImdbQueuedByProgress() {
+    return lodash
+      .sortBy(this.moviesQueue, [e => e.sizeleft])
+      .map(({ imdbId }) => imdbId);
+  }
+
+  getServer = createTransformer((id: number) => {
+    // @ts-ignore
+    return this.servers.get(id.toString());
+  });
+
+  // SERVER
   @action
   syncAll = (): Promise<void> => {
     const servers = [...this.servers.keys()];
@@ -49,8 +131,6 @@ export default class ServerStore {
   add = (server: Server): number => {
     try {
       this.validate(server);
-
-      console.log(server);
 
       // Has ID, update server
       if (typeof server.id === 'number') {
@@ -99,8 +179,8 @@ export default class ServerStore {
 
     if (!server.name) {
       err.name = 'Required!';
-    } else if (server.name.length > this.nameMaxLength) {
-      err.name = `Name has a max of ${this.nameMaxLength}!`;
+    } else if (server.name.length > this.serverNameMaxLength) {
+      err.name = `Name has a max of ${this.serverNameMaxLength}!`;
     } else if (server.name.length <= 0) {
       err.name = 'Name is too short!';
     }
@@ -149,5 +229,98 @@ export default class ServerStore {
         })
         .catch(err => reject(err));
     });
+  };
+
+  // RADARR
+  @action
+  mockRadarr = () => {
+    const serverId = 0;
+
+    const movies: Movie[] = require('../../assets/movies.json');
+    const moviesQueue: MovieQueue[] = require('../../assets/moviesQueue.json');
+    const moviesWanted: MovieWanted = require('../../assets/moviesWanted.json');
+
+    this.movies = movies;
+
+    this.moviesFiles = movies
+      .filter(e => e.hasFile === true && e.hasOwnProperty('movieFile'))
+      .map(e => ({
+        movieFile: e.movieFile!,
+        serverId,
+        imdbId: e.imdbId,
+      }));
+
+    this.moviesQueue = moviesQueue.map(({ movie, ...rest }) => ({
+      ...rest,
+      serverId,
+      imdbId: movie!.imdbId,
+    }));
+
+    this.moviesWanted = moviesWanted.records.map(({ imdbId }) => ({
+      serverId,
+      imdbId,
+    }));
+
+    this.moviesImages = movies.map(({ imdbId }) => ({ serverId, imdbId }));
+  };
+
+  /**
+   * @param serverId - Server's ID
+   * @returns Whether Sync was successful
+   */
+  @action
+  syncRadarr = async (serverId: number): Promise<boolean> => {
+    try {
+      // const movies: Movie[] = await this.fetchMovies(serverId);
+      // const moviesQueue: MovieQueue[] = await this.fetchMoviesQueue(serverId);
+      // const moviesWanted: MovieWanted = await this.fetchMoviesWanted(serverId);
+
+      return true;
+    } catch (err) {
+      return false;
+    }
+  };
+
+  /**
+   * @param serverId - Server's ID
+   * @returns Fetched movies
+   */
+  fetchMovies = (serverId: number): Promise<Movie[]> => {
+    return this.fetch('movie', {}, serverId);
+  };
+
+  /**
+   * @param serverId - Server's ID
+   * @returns Fetched moviesQueue
+   */
+  fetchMoviesQueue = (serverId: number): Promise<MovieQueue[]> => {
+    return this.fetch('moviesQueue', {}, serverId);
+  };
+
+  /**
+   * @param serverId - Server's ID
+   * @returns Fetched wanted records
+   */
+  fetchMoviesWanted = async (serverId: number): Promise<MovieWanted> => {
+    const wantedParams = {
+      sortKey: 'date',
+      page: 1,
+      pageSize: 0,
+      sortDir: 'desc',
+    };
+
+    // Make request to get the total amount of records
+    const wantedPre = await this.fetch(
+      'wanted/missing',
+      wantedParams,
+      serverId,
+    );
+
+    // Make request passing total amount of records
+    return this.fetch(
+      'wanted/missing',
+      { ...wantedParams, pageSize: wantedPre.totalRecords },
+      serverId,
+    );
   };
 }

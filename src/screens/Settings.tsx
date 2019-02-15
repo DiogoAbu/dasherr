@@ -8,15 +8,14 @@ import { NavigationScreenProp } from 'react-navigation';
 import { Header, ListItem } from '../components';
 import { ListItemProps } from '../components/ListItem';
 import { localize } from '../locales';
-import { GeneralStore, RadarrStore } from '../stores';
+import { GeneralStore } from '../stores';
 
 interface Props {
   general: GeneralStore;
-  radarr: RadarrStore;
   navigation: NavigationScreenProp<any>;
 }
 
-@inject('general', 'radarr')
+@inject('general')
 @observer
 class Settings extends React.Component<Props, {}> {
   onPressBack = () => {
